@@ -1,4 +1,4 @@
-package main.java.org.lab.data_type;
+package org.lab.data_type;
 
 public class PrimitiveType {
     /*
@@ -23,6 +23,8 @@ public class PrimitiveType {
 
         //논리
         boolean number_boolean = false;
+        
+        
 
     }
 }

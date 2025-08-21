@@ -1,88 +1,111 @@
-# Java 마스터를 위한 로드맵: 상위 0.1%를 향하여
+# Java 활용 마스터를 위한 상세 로드맵
 
-이 문서는 Java 개발자로서 최고의 전문가가 되기 위해 학습해야 할 주제들을 정리한 로드맵입니다. 꾸준한 학습과 실습을 통해 Java의 세계를 정복해나가시길 바랍니다.
-
----
-
-## 1. Java 코어 및 기본기 (Foundation)
-
-모든 것의 기초입니다. 이 부분은 단순히 아는 것을 넘어, 왜 그렇게 동작하는지 깊이 있게 이해해야 합니다.
-
--   **OOP 완벽 마스터**
-    -   SOLID 원칙의 체화
-    -   객체지향 설계와 디자인 패턴 (GoF 디자인 패턴 필수)
--   **Java 언어 명세(JLS) 이해**
-    -   `final`, `static`, `transient`, `volatile` 등의 키워드 정확한 이해
-    -   제네릭(Generics)의 원리와 한계 (Type Erasure 등)
-    -   람다(Lambda)와 스트림(Stream) API 심층 활용
-    -   모던 Java (Java 8 ~ 21+)의 새로운 기능들
--   **JVM 내부 구조**
-    -   메모리 관리 (Heap, Stack, Metaspace)
-    -   가비지 컬렉션(GC) 알고리즘 (G1GC, ZGC, Shenandoah) 및 튜닝
-    -   클래스로더(ClassLoader) 동작 방식
-    -   JIT 컴파일러의 이해
--   **동시성(Concurrency)과 멀티스레딩**
-    -   `java.util.concurrent` 패키지 완벽 이해
-    -   Thread-safe 프로그래밍, Deadlock, Race Condition
-    -   CompletableFuture, ExecutorService, Fork-Join Pool
-    -   Loom 프로젝트 (Virtual Threads) - Java 21+
-
-## 2. 시스템 설계 및 아키텍처 (System Design & Architecture)
-
-단순한 코더를 넘어 아키텍트 수준으로 성장하기 위한 필수 역량입니다.
-
--   **마이크로서비스 아키텍처 (MSA)**
-    -   MSA의 장단점 및 구현 패턴 (Saga, CQRS, API Gateway 등)
-    -   분산 트랜잭션 처리 전략
-    -   Service Mesh (Istio, Linkerd)
--   **대용량 트래픽 처리**
-    -   Scale-up vs Scale-out
-    -   캐싱 전략 (Local, Global, CDN)
-    -   로드 밸런싱
-    -   메시지 큐 (Kafka, RabbitMQ)를 이용한 비동기 처리
--   **클라우드 네이티브 (Cloud-Native)**
-    -   컨테이너 기술 (Docker, Containerd)
-    -   오케스트레이션 (Kubernetes)
-    -   서버리스 (Serverless) 아키텍처
--   **데이터베이스 심화**
-    -   SQL 및 NoSQL(MongoDB, Cassandra, Redis)의 적절한 선택과 활용
-    -   데이터베이스 인덱싱, 쿼리 최적화
-    -   JPA/Hibernate 동작 원리 및 성능 튜닝 (N+1 문제 해결 등)
-
-## 3. 프레임워크 및 라이브러리 (Frameworks & Libraries)
-
-생산성을 극대화하고, 검증된 방식으로 개발하기 위해 생태계에 대한 깊은 이해가 필요합니다.
-
--   **Spring Framework / Spring Boot**
-    -   단순 사용을 넘어 내부 동작 원리(IoC, AOP, PSA) 이해
-    -   Spring Security, Spring Data JPA, Spring Batch 등 핵심 프로젝트 마스터
-    -   WebFlux를 이용한 반응형(Reactive) 프로그래밍
--   **빌드 및 의존성 관리**
-    -   Gradle, Maven 심화 사용법
--   **테스팅 프레임워크**
-    -   JUnit, Mockito, AssertJ를 활용한 단위/통합 테스트 전략
-    -   TDD, BDD 방법론
-
-## 4. 성능 분석 및 최적화 (Performance Tuning)
-
-최고의 성능을 내는 애플리케이션을 만들기 위한 기술입니다.
-
--   **JVM 모니터링 및 프로파일링**
-    -   JMX, VisualVM, JFR(Java Flight Recorder) 사용법
-    -   APM (Application Performance Management) 툴 (Pinpoint, Scouter) 활용
--   **코드 레벨 최적화**
-    -   Zero-copy, Off-heap 메모리 사용
-    -   고성능 I/O (Netty, epoll)
-
-## 5. 소프트웨어 공학 및 개발 문화 (Software Engineering & Culture)
-
-기술뿐만 아니라, 협업과 개발 프로세스에 대한 이해도 중요합니다.
-
--   **Clean Code, Refactoring**
--   **CI/CD 파이프라인 구축 및 자동화 (Jenkins, GitHub Actions)**
--   **Git 고급 활용 전략 (Git-flow, Rebase 등)**
--   **Observability (Logging, Metrics, Tracing) 구축**
+이 문서는 Java 언어와 핵심 라이브러리(Core API)를 깊이 있게 이해하고 자유자재로 활용하는 것을 목표로 하는 **상세 학습 로드맵**입니다. 각 주제에 대해 구체적인 학습 목표와 실습 과제를 제시하여, Java 언어 자체의 전문가가 되는 길을 안내합니다.
 
 ---
 
-> 이 로드맵은 하나의 이정표이며, 기술의 트렌드는 계속 변합니다. 항상 새로운 기술에 열린 자세를 유지하고, 깊이 있는 학습을 통해 자신만의 경쟁력을 키워나가시길 바랍니다.
+## 1. Java 언어 심층 탐구 (Language Deep Dive)
+
+*목표: Java 언어의 명세(JLS)를 깊이 이해하고, 모던 Java의 기능을 능숙하게 사용하여 간결하고 효율적인 코드를 작성한다.*
+
+-   **객체 지향 원리(OOP)와 디자인 패턴**
+    -   **학습 목표**: SOLID 원칙을 실제 코드에 적용하여 유연하고 유지보수하기 좋은 설계를 한다.
+    -   **세부 주제**:
+        -   `LSP` (리스코프 치환 원칙): `instanceof` 사용을 지양하고 다형성으로 해결하는 방법.
+        -   `ISP` (인터페이스 분리 원칙): 기능에 따라 인터페이스를 분리하여 클라이언트 입장에서의 명확성 확보.
+        -   `DIP` (의존관계 역전 원칙): 구체 클래스가 아닌 추상화(인터페이스)에 의존하는 코드 작성.
+    -   **실습**: 간단한 주문 시스템을 SOLID 원칙을 모두 적용하여 리팩토링하기.
+
+-   **제네릭(Generics) 마스터**
+    -   **학습 목표**: 제네릭의 동작 원리를 이해하고, 타입 안정성이 높은 유연한 코드를 작성한다.
+    -   **세부 주제**:
+        -   `PECS` (`Producer-Extends, Consumer-Super`): `? extends T`와 `? super T`의 명확한 구분과 사용.
+        -   Type Erasure: 제네릭이 컴파일 타임에 어떻게 동작하고, 런타임에 어떤 제약이 생기는지 이해.
+        -   제네릭 메소드, 제네릭 클래스, 중첩 제네릭 활용.
+    -   **실습**: 제네릭을 사용하여 `List`를 복사하는 유틸리티 메소드 `copy(List<? super T> dest, List<? extends T> src)` 구현하기.
+
+-   **모던 Java 기능 (Java 8 ~ 21+)**
+    -   **학습 목표**: 최신 Java 버전의 핵심 기능을 활용하여 생산성과 코드 품질을 높인다.
+    -   **세부 주제**:
+        -   `Records` (Java 16): 불변(Immutable) 데이터 객체를 간결하게 정의하고 활용하기.
+        -   `Sealed Classes` (Java 17): 상속 가능한 클래스를 제한하여 도메인 모델의 안정성 확보.
+        -   `Pattern Matching for instanceof` (Java 16+): `if (obj instanceof String s)` 구문을 통한 코드 간소화.
+        -   `Text Blocks` (Java 15): 멀티라인 문자열을 깔끔하게 관리.
+    -   **실습**: JSON과 유사한 데이터 구조를 `Record`와 `Sealed Class`를 조합하여 모델링하기.
+
+---
+
+## 2. 동시성 프로그래밍 (Concurrency Programming)
+
+*목표: Java 메모리 모델을 이해하고, `java.util.concurrent`와 가상 스레드를 활용하여 안전하고 성능 좋은 멀티스레드 애플리케이션을 개발한다.*
+
+-   **Java 메모리 모델(JMM)과 동기화**
+    -   **학습 목표**: `volatile`, `synchronized`의 동작 원리를 JMM 관점에서 설명할 수 있다.
+    -   **세부 주제**:
+        -   가시성(Visibility), 원자성(Atomicity), 순서성(Ordering) 문제.
+        -   `happens-before` 관계의 이해.
+        -   `volatile` 키워드의 역할: 가시성 보장 및 일부 순서성 보장.
+        -   `synchronized` 블록과 메소드의 동작 원리 (Monitor Lock).
+    -   **실습**: `volatile` 키워드 없이 멀티스레드 환경에서 공유 변수 값의 불일치가 발생하는 코드와, `volatile`로 해결하는 코드 작성하기.
+
+-   **`java.util.concurrent` 패키지 정복**
+    -   **학습 목표**: 스레드 풀과 동기화 도구를 목적에 맞게 사용하여 동시성 문제를 해결한다.
+    -   **세부 주제**:
+        -   `ExecutorService`: `newFixedThreadPool`, `newCachedThreadPool`의 차이와 올바른 사용법.
+        -   `Future`와 `CompletableFuture`: 비동기 작업의 결과를 다루고, 콜백, 조합, 에러 처리를 능숙하게 수행.
+        -   `ReentrantLock`, `ReadWriteLock`: `synchronized`보다 유연한 락킹 메커니즘 활용.
+        -   `Semaphore`, `CountDownLatch`, `CyclicBarrier`: 스레드 간의 실행 흐름 제어.
+    -   **실습**: `CompletableFuture`를 사용하여 여러 개의 외부 API 호출을 비동기적으로 실행하고, 모든 결과가 오면 조합하여 반환하는 로직 구현하기.
+
+-   **가상 스레드 (Virtual Threads)**
+    -   **학습 목표**: 가상 스레드의 개념을 이해하고, I/O 바운드 작업의 성능을 극대화한다.
+    -   **세부 주제**:
+        -   플랫폼 스레드 vs 가상 스레드: 차이점과 사용 시나리오.
+        -   `Thread.ofVirtual().start()`를 이용한 가상 스레드 생성 및 실행.
+        -   `Structured Concurrency` (Preview): 여러 스레드의 작업을 하나의 단위로 묶어 관리.
+    -   **실습**: 기존 `ExecutorService`를 사용한 Blocking I/O 기반의 웹 서버를 가상 스레드 기반으로 변경하여 성능 비교하기.
+
+---
+
+## 3. I/O & NIO
+
+*목표: Blocking I/O와 Non-blocking I/O의 차이를 이해하고, NIO를 사용하여 고성능 네트워킹 애플리케이션의 기반을 만든다.*
+
+-   **`java.io` (Blocking I/O)와 `java.nio` (Non-blocking I/O)**
+    -   **학습 목표**: 두 패러다임의 차이를 설명하고, 상황에 맞는 I/O 모델을 선택한다.
+    -   **세부 주제**:
+        -   Stream-based vs Buffer-based: `java.io`와 `java.nio`의 근본적인 데이터 처리 방식 차이.
+        -   Blocking vs Non-blocking: 스레드가 대기하는 방식의 차이.
+-   **NIO 핵심 컴포넌트: Buffer, Channel, Selector**
+    -   **학습 목표**: NIO의 3대 컴포넌트를 사용하여 이벤트 기반의 I/O 로직을 구현할 수 있다.
+    -   **세부 주제**:
+        -   `ByteBuffer`: `allocate()` vs `allocateDirect()`. `flip()`, `rewind()`, `clear()` 메소드의 정확한 역할.
+        -   `FileChannel`: 파일에 대한 랜덤 액세스 및 파일 락킹.
+        -   `Selector`와 `SelectionKey`: `OP_READ`, `OP_WRITE` 등 이벤트를 등록하고, 단일 스레드에서 여러 채널을 효율적으로 관리.
+    -   **실습**: `Selector`를 사용하여 여러 클라이언트의 연결을 동시에 처리하는 간단한 Non-blocking 에코(Echo) 서버 구현하기.
+
+---
+
+## 4. JVM과 성능 최적화 (JVM & Performance Tuning)
+
+*목표: JVM의 내부 동작을 이해하고, 프로파일링 툴을 사용하여 애플리케이션의 성능 병목을 찾아내고 해결한다.*
+
+-   **가비지 컬렉션 (GC) 분석 및 튜닝**
+    -   **학습 목표**: GC 로그를 분석하여 애플리케이션의 메모리 사용 패턴을 파악하고, GC 옵션을 조절하여 성능을 개선한다.
+    -   **세부 주제**:
+        -   Minor GC vs Major GC (Full GC).
+        -   GC 로깅 옵션 (`-Xlog:gc*:file=gc.log:time,level,tags:filecount=5,filesize=10m`).
+        -   G1GC의 핵심 파라미터 (`-XX:MaxGCPauseMillis`, `-XX:G1HeapRegionSize`) 튜닝.
+    -   **실습**: 일부러 메모리 누수를 발생시키는 코드를 작성하고, VisualVM이나 MAT(Memory Analyzer Tool)를 사용하여 원인 분석하기.
+
+-   **JIT 컴파일과 프로파일링**
+    -   **학습 목표**: 내 코드가 어떻게 최적화되는지 이해하고, 프로파일링 툴을 통해 성능 병목 지점을 정확히 찾아낸다.
+    -   **세부 주제**:
+        -   JIT 컴파일의 단계와 Escape Analysis 같은 최적화 기법.
+        -   JFR (Java Flight Recorder)와 JMC (JDK Mission Control)를 사용한 저부하 프로파일링.
+        -   `async-profiler`를 이용한 On-CPU, Off-CPU 분석.
+    -   **실습**: 특정 메소드에 부하를 준 뒤, JMC를 사용하여 Hot Method를 찾아내고 코드 개선 후 성능 변화 측정하기.
+
+---
+
+> 이 로드맵은 '어떻게'를 넘어 '왜'를 탐구하는 데 초점을 맞춥니다. 각 주제에 대해 제시된 실습 과제를 직접 코드로 구현하며 깊이 있는 지식을 체득하시길 바랍니다.

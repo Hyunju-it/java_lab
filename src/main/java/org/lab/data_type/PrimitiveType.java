@@ -3,6 +3,7 @@ package org.lab.data_type;
 public class PrimitiveType {
     /*
         원시타입(primitive type)은 실제 값(call by value)을 직접 저장하고 호출하는 데이터 타입
+        JVM의 Stack에 저장되고 있는 데이터 타입
         - 각 타입은 크기와 범위가 정해져 있음
         - 참조 타입(reference type)과는 실제 메모리에 할당되서 실행되는 구조가 다름
      */
